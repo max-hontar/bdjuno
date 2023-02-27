@@ -33,6 +33,9 @@ issues:
     - text: "Use of weak random number generator"
       linters:
         - gosec
+    - text: "don't use an underscore in package name"
+      linters:
+        - revive
     - text: "ST1003:"
       linters:
         - stylecheck
@@ -51,9 +54,6 @@ issues:
 linters-settings:
   dogsled:
     max-blank-identifiers: 3
-  govet:
-    enable:
-      - fieldalignment
   nolintlint:
     allow-unused: false
     allow-leading-space: true
