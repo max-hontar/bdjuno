@@ -7,42 +7,35 @@ linters:
   disable-all: true
   enable:
     - bodyclose
-    - deadcode
     - depguard
     - dogsled
+    - exportloopref
     - gocritic
     - gofmt
     - goimports
-    - golint
     - gosec
     - gosimple
     - govet
     - ineffassign
-    - maligned
     - misspell
     - nakedret
-    - scopelint
+    - nolintlint
+    - revive
     - staticcheck
-    - structcheck
     - stylecheck
     - typecheck
     - unconvert
-    - unused
     - unparam
-    - misspell
-    - nolintlint
+    - unused
 
 issues:
   exclude-rules:
     - text: "Use of weak random number generator"
       linters:
         - gosec
-    - text: "comment on exported var"
-      linters:
-        - golint
     - text: "don't use an underscore in package name"
       linters:
-        - golint
+        - revive
     - text: "ST1003:"
       linters:
         - stylecheck
@@ -61,9 +54,6 @@ issues:
 linters-settings:
   dogsled:
     max-blank-identifiers: 3
-  maligned:
-    # print struct with more effective memory layout or not, false by default
-    suggest-new: true
   nolintlint:
     allow-unused: false
     allow-leading-space: true

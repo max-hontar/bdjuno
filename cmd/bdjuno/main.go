@@ -2,7 +2,6 @@ package main
 
 import (
 	"github.com/cosmos/cosmos-sdk/types/module"
-	"github.com/forbole/juno/v4/cmd"
 	initcmd "github.com/forbole/juno/v4/cmd/init"
 	parsetypes "github.com/forbole/juno/v4/cmd/parse/types"
 	startcmd "github.com/forbole/juno/v4/cmd/start"
@@ -10,11 +9,10 @@ import (
 
 	migratecmd "github.com/forbole/bdjuno/v4/cmd/migrate"
 	parsecmd "github.com/forbole/bdjuno/v4/cmd/parse"
-
-	"github.com/forbole/bdjuno/v4/types/config"
-
 	"github.com/forbole/bdjuno/v4/database"
 	"github.com/forbole/bdjuno/v4/modules"
+	"github.com/forbole/bdjuno/v4/types/config"
+	"github.com/forbole/juno/v4/cmd"
 )
 
 func main() {
@@ -52,7 +50,9 @@ func main() {
 // support custom messages.
 // This should be edited by custom implementations if needed.
 func getBasicManagers() []module.BasicManager {
-	return []module.BasicManager{}
+	return []module.BasicManager{
+		CustomBasicManager(),
+	}
 }
 
 // getAddressesParser returns the messages parser that should be used to get the users involved in
@@ -60,6 +60,7 @@ func getBasicManagers() []module.BasicManager {
 // This should be edited by custom implementations if needed.
 func getAddressesParser() messages.MessageAddressesParser {
 	return messages.JoinMessageParsers(
+		CustomAddressesParser,
 		messages.CosmosMessageAddressesParser,
 	)
 }
