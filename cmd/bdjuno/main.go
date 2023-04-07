@@ -2,6 +2,8 @@ package main
 
 import (
 	"github.com/cosmos/cosmos-sdk/types/module"
+
+	"github.com/forbole/juno/v4/cmd"
 	initcmd "github.com/forbole/juno/v4/cmd/init"
 	parsetypes "github.com/forbole/juno/v4/cmd/parse/types"
 	startcmd "github.com/forbole/juno/v4/cmd/start"
@@ -12,7 +14,6 @@ import (
 	"github.com/forbole/bdjuno/v4/database"
 	"github.com/forbole/bdjuno/v4/modules"
 	"github.com/forbole/bdjuno/v4/types/config"
-	"github.com/forbole/juno/v4/cmd"
 )
 
 func main() {
